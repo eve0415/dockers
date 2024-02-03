@@ -1,6 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
+USER node
 RUN code-server --install-extension esbenp.prettier-vscode & \
     code-server --install-extension dbaeumer.vscode-eslint & \
     code-server --install-extension biomejs.biome & \
@@ -10,4 +11,3 @@ RUN code-server --install-extension esbenp.prettier-vscode & \
     code-server --install-extension github.vscode-github-actions & \
     code-server --install-extension GitHub.vscode-pull-request-github
 
-CMD ["code-server", "--auth", "none", "--port", "13337", "--disable-workspace-trust", ">/tmp/code-server.log", "2>&1", "&"]
