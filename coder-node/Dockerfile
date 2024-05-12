@@ -1,6 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm
 RUN curl -fsSL https://code-server.dev/install.sh | sh
-RUN corepack enable yarn pnpm
+RUN corepack enable yarn pnpm && \
+    rm /usr/local/share/npm-global/bin/pnpm
 
 USER node
 RUN code-server --install-extension esbenp.prettier-vscode && \
