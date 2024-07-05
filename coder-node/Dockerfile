@@ -1,6 +1,6 @@
-FROM mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm
+FROM mcr.microsoft.com/devcontainers/typescript-node:22-bookworm
 RUN curl -fsSL https://code-server.dev/install.sh | sh
-RUN corepack enable yarn pnpm && \
+RUN corepack enable npm yarn pnpm && \
     rm /usr/local/share/npm-global/bin/pnpm
 
 USER node
